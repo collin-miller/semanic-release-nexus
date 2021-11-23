@@ -1,6 +1,5 @@
 {
     "name": "semantic-release-nexus",
-    "version": "1.0.0",
     "description": "Semantic Release Plugin to Release to Nexus",
     "main": "index.js",
     "author": "collin-miller <colljmiller@gmail.com>",
@@ -8,6 +7,10 @@
     "devDependencies": {
         "@commitlint/config-conventional": "^15.0.0",
         "@jest/globals": "^27.3.1",
+        "@semantic-release/commit-analyzer": "^9.0.2",
+        "@semantic-release/exec": "^6.0.2",
+        "@semantic-release/github": "^8.0.2",
+        "@semantic-release/release-notes-generator": "^10.0.2",
         "@types/jest": "^27.0.3",
         "@types/node": "^16.11.9",
         "@types/semantic-release": "^17.2.3",
@@ -26,6 +29,7 @@
         "jest": "^27.3.1",
         "prettier": "^2.2.1",
         "pretty-quick": "^3.1.0",
+        "semantic-release": "^18.0.0",
         "ts-jest": "^27.0.7",
         "ts-node": "^10.4.0",
         "typescript": "^4.5.2"
@@ -34,7 +38,7 @@
         "test": "yarn concurrently npm:test:lint npm:test:unit",
         "test:unit": "yarn jest",
         "test:lint": "yarn eslint ./**/*.ts",
-        "build": "yarn tsc",
+        "build": "yarn tsc && cp README.md dist && cp LICENSE dist",
         "commit": "yarn git-cz",
         "lint:staged": "yarn pretty-quick --staged"
     },

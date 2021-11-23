@@ -4,7 +4,7 @@
         "module": "commonjs",
         "allowJs": false,
         "checkJs": false,
-
+        "resolveJsonModule": true,
         "outDir": "./dist",
         "rootDir": ".",
         "strict": true,
@@ -12,5 +12,6 @@
         "typeRoots": ["node_modules/@types"],
         "esModuleInterop": true
     },
-    "exclude": ["node_modules", "**/*.test.ts"]
+    "exclude": ["node_modules", "**/*.test.ts"],
+    "include": ["./package.json"]
 }
