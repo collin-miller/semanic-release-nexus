@@ -11,6 +11,7 @@
         "@semantic-release/exec": "^6.0.2",
         "@semantic-release/github": "^8.0.2",
         "@semantic-release/release-notes-generator": "^10.0.2",
+        "@types/debug": "^4.1.7",
         "@types/jest": "^27.0.3",
         "@types/node": "^16.11.9",
         "@types/semantic-release": "^17.2.3",
@@ -23,6 +24,7 @@
         "eslint-config-prettier": "^8.3.0",
         "eslint-import-resolver-typescript": "^2.4.0",
         "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-prettier": "^3.4.0",
         "git-cz": "^4.8.0",
         "husky": "^3.1.0",
@@ -37,7 +39,7 @@
     "scripts": {
         "test": "yarn concurrently npm:test:lint npm:test:unit",
         "test:unit": "yarn jest",
-        "test:lint": "yarn eslint ./**/*.ts",
+        "test:lint": "yarn eslint ./index.ts ./lib/**/*.ts --max-warnings 0",
         "build": "yarn tsc && cp README.md dist && cp LICENSE dist",
         "commit": "yarn git-cz",
         "lint:staged": "yarn pretty-quick --staged"
@@ -64,5 +66,14 @@
                 "lines": 90
             }
         }
+    },
+    "dependencies": {
+        "axios": "^0.24.0",
+        "debug": "^4.3.3",
+        "form-data": "^4.0.0"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/",
+        "tag": "latest"
     }
 }
