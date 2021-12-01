@@ -4,6 +4,8 @@ import fs from 'fs';
 import Nexus from './nexus';
 import { INexusOptions } from './nexus.options';
 
+jest.mock('axios');
+
 describe('Nexus Client', () => {
     it('should instantiate with default values', () => {
         const nx = new Nexus();
@@ -28,13 +30,11 @@ describe('Nexus Client', () => {
         expect(nx.options.retryStrategy?.(2)).toEqual(100);
     });
     describe('upload to nexus', () => {
+        const mockedAxios = axios as jest.Mocked<typeof axios>;
         const originalMath = global.Math;
         beforeEach(() => {
-            jest.mock('axios', () => {
-                return Object.assign(jest.fn(), {
-                    post: jest.fn().mockReturnValue({ success: true }),
-                });
-            });
+            mockedAxios.post.mockReturnValue(Promise.resolve({ success: true }));
+
             const mockMath = Object.create(global.Math);
             mockMath.random = () => 0.5;
             global.Math = mockMath;
@@ -43,6 +43,7 @@ describe('Nexus Client', () => {
         afterEach(() => {
             global.Math = originalMath;
             jest.restoreAllMocks();
+            jest.clearAllMocks();
         });
         it('should upload', async () => {
             const fsMock = jest.spyOn(fs, 'createReadStream');
