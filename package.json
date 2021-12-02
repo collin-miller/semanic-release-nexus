@@ -31,6 +31,7 @@
         "jest": "^27.3.1",
         "prettier": "^2.2.1",
         "pretty-quick": "^3.1.0",
+        "rimraf": "^3.0.2",
         "semantic-release": "^18.0.0",
         "ts-jest": "^27.0.7",
         "ts-node": "^10.4.0",
@@ -38,9 +39,9 @@
     },
     "scripts": {
         "test": "yarn concurrently npm:test:lint npm:test:unit",
-        "test:unit": "yarn jest",
-        "test:lint": "yarn eslint ./index.ts ./lib/**/*.ts --max-warnings 0",
-        "build": "yarn tsc && cp README.md dist && cp LICENSE dist",
+        "test:unit": "yarn rimraf coverage && yarn jest",
+        "test:lint": "yarn eslint ./src/**/*.ts --max-warnings 0",
+        "build": "yarn rimraf dist && yarn tsc && cp package.json dist && cp README.md dist && cp LICENSE dist",
         "commit": "yarn git-cz",
         "lint:staged": "yarn pretty-quick --staged"
     },
@@ -59,7 +60,18 @@
         "transform": {
             "^.+\\.(ts|tsx)$": "ts-jest"
         },
+        "testEnvironment": "node",
+        "transformIgnorePatterns": [
+            "node_modules/(?!(aggregate-error|clean-stack|escape-string-regexp|indent-string)/)"
+        ],
+        "moduleDirectories": [
+            "src",
+            "node_modules"
+        ],
         "collectCoverage": true,
+        "coveragePathIgnorePatterns": [
+            "dist/*"
+        ],
         "coverageThreshold": {
             "global": {
                 "functions": 100,
