@@ -1,19 +1,11 @@
-import { afterEach, beforeEach, describe, expect, it, jest } from '@jest/globals';
+import { describe, expect, it, jest } from '@jest/globals';
 import { success } from './success';
 
 describe('success', () => {
-    beforeEach(() => {
-        jest.spyOn(console, 'log');
-    });
-    afterEach(() => {
-        jest.restoreAllMocks();
-    });
-
     it('should log the success message', () => {
-        success();
-        // eslint-disable-next-line no-console
-        expect(console.log).toHaveBeenCalledTimes(1);
-        // eslint-disable-next-line no-console
-        expect(console.log).toHaveBeenCalledWith('This is success.');
+        const logMock = jest.fn();
+        success({ assets: [{ path: './some-path' }] }, { logger: { log: logMock, error: jest.fn() }, env: {} });
+        expect(logMock).toBeCalledTimes(1);
+        expect(logMock.mock.calls).toMatchSnapshot();
     });
 });
