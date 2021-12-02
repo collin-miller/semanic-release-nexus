@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`verify should pass schema validation 1`] = `
+Array [
+  Array [
+    "Found file dist/some-package-v1.tar.gz from path dist/some-package-v*.tar.gz",
+  ],
+]
+`;
