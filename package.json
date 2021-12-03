@@ -4,6 +4,7 @@
     "main": "index.js",
     "author": "collin-miller <colljmiller@gmail.com>",
     "license": "MIT",
+    "version": "1.0.0",
     "devDependencies": {
         "@babel/core": "^7.16.0",
         "@babel/preset-env": "^7.16.4",
@@ -63,9 +64,6 @@
             "\\.[jt]sx?$": "babel-jest"
         },
         "testEnvironment": "node",
-        "transformIgnorePatterns": [
-            "node_modules/(?!(aggregate-error|clean-stack|escape-string-regexp|indent-string)/)"
-        ],
         "moduleDirectories": [
             "src",
             "node_modules"
@@ -82,12 +80,10 @@
         }
     },
     "dependencies": {
-        "aggregate-error": "^4.0.0",
+        "aggregate-error": "^3.0.0",
         "ajv": "^8.8.2",
         "axios": "^0.24.0",
-        "clean-stack": "^4.1.0",
         "form-data": "^4.0.0",
-        "indent-string": "^5.0.0",
         "tiny-glob": "^0.2.9"
     },
     "publishConfig": {
