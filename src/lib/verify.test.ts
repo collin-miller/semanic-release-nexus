@@ -25,7 +25,10 @@ describe('verify', () => {
                 {
                     assets: [{ path: 'dist/some-package-v*.tar.gz' }, { path: 'dist/other-package-v*.tar.gz' }],
                 },
-                { logger: { log: logMock, error: jest.fn() }, env: { key: 'value' } },
+                {
+                    logger: { log: logMock, error: jest.fn() },
+                    env: { NX_HOST: 'https://some-host', NX_REPO: 'some-repo' },
+                },
             ),
         ).resolves.toBeUndefined();
         expect(mockedGlob).toHaveBeenCalledTimes(2);
