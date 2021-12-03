@@ -27,7 +27,7 @@ export const verify = async (pluginConfig: IPluginConfig, context: Context) => {
     // const { logger } = context;
     const errors: string[] = [];
 
-    const ajv = new Ajv();
+    const ajv = new Ajv({ allErrors: true });
     const valid = ajv.validate(PluginSchema, pluginConfig);
     // Collect schema validation errors
     if (!valid) {

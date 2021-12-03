@@ -2,30 +2,28 @@ export const PluginSchema = {
     type: 'object',
     properties: {
         nexusHost: {
-            type: ['string', 'null'],
+            type: 'string',
         },
         nexusRepo: {
-            type: ['string', 'null'],
+            type: 'string',
         },
         assets: {
             type: 'array',
+            items: {
+                type: 'object',
+                additionalProperties: false,
+                properties: {
+                    path: {
+                        type: 'string',
+                    },
+                    name: {
+                        type: 'string',
+                    },
+                },
+                required: ['path'],
+            },
             minItems: 1,
             uniqueItems: true,
-            additionalItems: false,
-            items: [
-                {
-                    type: 'object',
-                    properties: {
-                        path: {
-                            type: 'string',
-                        },
-                        name: {
-                            type: ['string', 'null'],
-                        },
-                    },
-                    required: ['path'],
-                },
-            ],
         },
     },
     required: ['assets'],
