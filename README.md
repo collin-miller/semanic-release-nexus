@@ -6,11 +6,11 @@ Semantic Release Nexus Plugin
 
 ### Options
 
-| Option      | Description                                                        | Default                                                                             |
-| ----------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
-| `nexusHost` | The URL of the Nexus Host.                                         | `NX_URL` or `NEXUS_URL` environment variable.                                       |
-| `nexusRepo` | The Nexus Repo Name.                                               | The repo name of remote origin (i.e. `basename $(git remote get-url origin) .git`). |
-| `assets`    | An array of files to upload to the release. See [assets](#assets). | -                                                                                   |
+| Option      | Description                                                        | Default                                         |
+| ----------- | ------------------------------------------------------------------ | ----------------------------------------------- |
+| `nexusHost` | The URL of the Nexus Host.                                         | `NX_URL` or `NEXUS_URL` environment variable.   |
+| `nexusRepo` | The Nexus Repo Name.                                               | `NX_REPO` or `NEXUS_REPO` environment variable. |
+| `assets`    | An array of files to upload to the release. See [assets](#assets). | -                                               |
 
 #### assets
 
