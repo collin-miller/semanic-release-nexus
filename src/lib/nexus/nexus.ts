@@ -44,7 +44,7 @@ export default class Nexus {
             config.auth = { username: this.options.username, password: this.options.password };
         }
         try {
-            await axios.post(`${this.options.scheme}${this.host}/repository/${repo}`, config);
+            await axios.post(`${this.host}/repository/${repo}`, config);
         } catch (error) {
             debug('%o', error);
             throw error;

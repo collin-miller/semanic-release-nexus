@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`publish should raise exception when publish fails 1`] = `
+Array [
+  Array [
+    "Deploying ./some-path as ./some-path to localhost",
+  ],
+  Array [
+    "Deploying ./some-path-2 as ./some-path-2 to localhost",
+  ],
+]
+`;
+
+exports[`publish should raise exception when publish fails 2`] = `
+Array [
+  Array [
+    "I hate you",
+  ],
+]
+`;
+
+exports[`publish should raise exception when publish fails 3`] = `
+Array [
+  Array [
+    "localhost",
+    "./some-path",
+    "./some-path",
+  ],
+  Array [
+    "localhost",
+    "./some-path-2",
+    "./some-path-2",
+  ],
+]
+`;
+
+exports[`publish should raise exception when publish fails 4`] = `
+Array [
+  Array [
+    "localhost",
+    Object {},
+  ],
+]
+`;
+
+exports[`publish should successfully publish 1`] = `
+Array [
+  Array [
+    "Deploying ./some-path as ./some-path to localhost",
+  ],
+  Array [
+    "Deploying ./some-path-2 as artifact-2 to localhost",
+  ],
+]
+`;
+
+exports[`publish should successfully publish 2`] = `
+Array [
+  Array [
+    "localhost",
+    "./some-path",
+    "./some-path",
+  ],
+  Array [
+    "localhost",
+    "artifact-2",
+    "./some-path-2",
+  ],
+]
+`;
+
+exports[`publish should successfully publish 3`] = `
+Array [
+  Array [
+    "localhost",
+    Object {},
+  ],
+]
+`;
+
+exports[`publish should successfully publish w/ auth 1`] = `
+Array [
+  Array [
+    "Deploying ./some-path as ./some-path to localhost",
+  ],
+  Array [
+    "Deploying ./some-path-2 as artifact-2 to localhost",
+  ],
+]
+`;
+
+exports[`publish should successfully publish w/ auth 2`] = `
+Array [
+  Array [
+    "localhost",
+    "./some-path",
+    "./some-path",
+  ],
+  Array [
+    "localhost",
+    "artifact-2",
+    "./some-path-2",
+  ],
+]
+`;
+
+exports[`publish should successfully publish w/ auth 3`] = `
+Array [
+  Array [
+    "localhost",
+    Object {
+      "password": "some-password",
+      "username": "some-user",
+    },
+  ],
+]
+`;

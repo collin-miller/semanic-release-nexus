@@ -3,7 +3,6 @@
 exports[`Nexus Client should instantiate with default values 1`] = `
 Object {
   "retryStrategy": [Function],
-  "scheme": "http://",
 }
 `;
 
@@ -11,6 +10,5 @@ exports[`Nexus Client should work with override values 1`] = `
 Object {
   "apiKey": "some-api-key",
   "retryStrategy": [Function],
-  "scheme": "http://",
 }
 `;

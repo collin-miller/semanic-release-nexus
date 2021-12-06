@@ -53,7 +53,7 @@ describe('Nexus Client', () => {
 
             expect(fsMock).toHaveBeenCalledWith('/some/path/to/artifact.zip');
             expect(postMock).toHaveBeenCalledWith(
-                'http://localhost/repository/some-repo',
+                'localhost/repository/some-repo',
                 expect.objectContaining({
                     data: expect.any(Object),
                     headers: {
@@ -74,7 +74,7 @@ describe('Nexus Client', () => {
             expect(postMock).toHaveBeenCalledTimes(1);
 
             await expect(postMock).toHaveBeenCalledWith(
-                'http://localhost/repository/some-repo',
+                'localhost/repository/some-repo',
                 expect.objectContaining({
                     data: expect.any(Object),
                     headers: {
