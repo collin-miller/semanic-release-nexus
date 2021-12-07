@@ -1,7 +1,7 @@
 import { Context } from 'semantic-release';
 import { IPluginConfig } from './plugin';
 
-export const success = async (pluginConfig: IPluginConfig, context: Context) => {
+export const fail = async (pluginConfig: IPluginConfig, context: Context) => {
     let stringifiedArtifacts: string;
     const { logger } = context;
     const artifacts = pluginConfig.assets.map((element) => element.path);
@@ -10,5 +10,5 @@ export const success = async (pluginConfig: IPluginConfig, context: Context) => 
     } else {
         stringifiedArtifacts = artifacts.pop()!;
     }
-    logger.log(`Successfully uploaded artifact(s): ${stringifiedArtifacts}.`);
+    logger.log(`Failed to upload artifact(s): ${stringifiedArtifacts}.`);
 };
