@@ -3,10 +3,10 @@
 exports[`publish should raise exception when publish fails 1`] = `
 Array [
   Array [
-    "Deploying ./some-path as ./some-path to localhost",
+    "Deploying ./some-path as some-path to localhost",
   ],
   Array [
-    "Deploying ./some-path-2 as ./some-path-2 to localhost",
+    "Deploying ./some-path-2 as some-path-2 to localhost",
   ],
 ]
 `;
@@ -23,12 +23,12 @@ exports[`publish should raise exception when publish fails 3`] = `
 Array [
   Array [
     "localhost",
-    "./some-path",
+    "some-path",
     "./some-path",
   ],
   Array [
     "localhost",
-    "./some-path-2",
+    "some-path-2",
     "./some-path-2",
   ],
 ]
@@ -46,7 +46,7 @@ Array [
 exports[`publish should successfully publish 1`] = `
 Array [
   Array [
-    "Deploying ./some-path as ./some-path to localhost",
+    "Deploying ./some-path as some-path to localhost",
   ],
   Array [
     "Deploying ./some-path-2 as artifact-2 to localhost",
@@ -58,7 +58,7 @@ exports[`publish should successfully publish 2`] = `
 Array [
   Array [
     "localhost",
-    "./some-path",
+    "some-path",
     "./some-path",
   ],
   Array [
@@ -81,7 +81,7 @@ Array [
 exports[`publish should successfully publish w/ auth 1`] = `
 Array [
   Array [
-    "Deploying ./some-path as ./some-path to localhost",
+    "Deploying ./some-path as some-path to localhost",
   ],
   Array [
     "Deploying ./some-path-2 as artifact-2 to localhost",
@@ -93,7 +93,7 @@ exports[`publish should successfully publish w/ auth 2`] = `
 Array [
   Array [
     "localhost",
-    "./some-path",
+    "some-path",
     "./some-path",
   ],
   Array [
