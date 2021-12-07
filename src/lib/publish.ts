@@ -2,6 +2,7 @@ import AggregateError from 'aggregate-error';
 import { Context } from 'semantic-release';
 import Nexus, { INexusOptions } from './nexus';
 import { IPluginConfig, resolveOptions } from './plugin';
+import { getFilename } from './get-filename';
 
 export const publish = async (pluginConfig: IPluginConfig, context: Context) => {
     const { logger } = context;
@@ -13,7 +14,7 @@ export const publish = async (pluginConfig: IPluginConfig, context: Context) => 
     }
     const nexusClient = new Nexus(options.nexusHost, nxOptions);
     const promises = options.assets.map((element) => {
-        const artifactName = element.name ? element.name : element.path;
+        const artifactName = element.name ? element.name : getFilename(element.path);
         logger.log(`Deploying ${element.path} as ${artifactName} to ${options.nexusRepo}`);
         return nexusClient.deploy(options.nexusRepo, artifactName, element.path);
     });
