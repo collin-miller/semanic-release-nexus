@@ -1,9 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`success should log the success message 1`] = `
+exports[`success should log the success message with multiple artifacts 1`] = `
 Array [
   Array [
-    "This is success.",
+    "Successfully uploaded artifact(s): ./some-path-again and some-artifact.",
+  ],
+]
+`;
+
+exports[`success should log the success message with single artifact 1`] = `
+Array [
+  Array [
+    "Successfully uploaded artifact(s): ./some-path.",
   ],
 ]
 `;
