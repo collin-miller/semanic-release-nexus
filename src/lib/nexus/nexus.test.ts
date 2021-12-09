@@ -15,7 +15,6 @@ describe('Nexus Client', () => {
 
     it('should work with override values', () => {
         const nx = new Nexus('some-host', {
-            apiKey: 'some-api-key',
             retryStrategy: (number) => {
                 return number;
             },
@@ -48,14 +47,15 @@ describe('Nexus Client', () => {
         it('should upload', async () => {
             const fsMock = jest.spyOn(fs, 'createReadStream');
             const postMock = jest.spyOn(axios, 'post').mockImplementation(() => Promise.resolve({ data: {} }));
+
             const nx = new Nexus();
             await nx.deploy('some-repo', 'some-artifact-name', '/some/path/to/artifact.zip');
 
             expect(fsMock).toHaveBeenCalledWith('/some/path/to/artifact.zip');
             expect(postMock).toHaveBeenCalledWith(
-                'localhost/repository/some-repo',
+                'localhost/service/rest/v1/components?repository=raw',
+                expect.any(Object),
                 expect.objectContaining({
-                    data: expect.any(Object),
                     headers: {
                         'content-type':
                             'multipart/form-data; boundary=--------------------------555555555555555555555555',
@@ -66,17 +66,16 @@ describe('Nexus Client', () => {
         it('should upload w/ auth', async () => {
             const fsMock = jest.spyOn(fs, 'createReadStream');
             const postMock = jest.spyOn(axios, 'post').mockImplementation(() => Promise.resolve({ data: {} }));
-            const nx = new Nexus('localhost', { username: 'some-user', password: 'some-password' });
 
+            const nx = new Nexus('localhost', { username: 'some-user', password: 'some-password' });
             await nx.deploy('some-repo', 'some-artifact-name', '/some/path/to/artifact.zip');
 
             expect(fsMock).toHaveBeenCalledWith('/some/path/to/artifact.zip');
-            expect(postMock).toHaveBeenCalledTimes(1);
 
             await expect(postMock).toHaveBeenCalledWith(
-                'localhost/repository/some-repo',
+                'localhost/service/rest/v1/components?repository=raw',
+                expect.any(Object),
                 expect.objectContaining({
-                    data: expect.any(Object),
                     headers: {
                         'content-type':
                             'multipart/form-data; boundary=--------------------------555555555555555555555555',
@@ -86,14 +85,12 @@ describe('Nexus Client', () => {
             );
         });
         it('should catch error and raise', async () => {
-            const fsMock = jest.spyOn(fs, 'createReadStream');
             const postMock = jest
                 .spyOn(axios, 'post')
                 .mockImplementation(() => Promise.reject(new Error('Some strange error')));
             const nx = new Nexus();
             await expect(nx.deploy('some-repo', 'some-artifact-name', '/some/path/to/artifact.zip')).rejects.toThrow();
 
-            expect(fsMock).toHaveBeenCalledWith('/some/path/to/artifact.zip');
             expect(postMock).toHaveBeenCalled();
         });
     });

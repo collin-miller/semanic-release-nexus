@@ -53,8 +53,8 @@ export const verify = async (pluginConfig: IPluginConfig, context: Context) => {
     if (!isValidUrl(options.nexusHost)) {
         errors.push(`The nexus host provided (${options.nexusHost}) is invalid.`);
     }
-    if (typeof options.nexusRepo === 'undefined') {
-        errors.push(`The nexus repo (${options.nexusRepo}) was not provided.`);
+    if (typeof options.nexusPath === 'undefined') {
+        errors.push(`The nexus repo (${options.nexusPath}) was not provided.`);
     }
     if (errors.length > 0) {
         throw new AggregateError(errors);
