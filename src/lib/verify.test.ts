@@ -23,7 +23,16 @@ describe('verify', () => {
         await expect(
             verify(
                 {
-                    assets: [{ path: 'dist/some-package-v*.tar.gz' }, { path: 'dist/other-package-v*.tar.gz' }],
+                    nexusHost: 'http://localhost',
+                    nexusPath: 'some-project-name',
+                    assets: [
+                        {
+                            path: 'dist/some-package-v*.tar.gz',
+                        },
+                        {
+                            path: 'dist/other-package-v*.tar.gz',
+                        },
+                    ],
                 },
                 {
                     logger: { log: logMock, error: jest.fn() },

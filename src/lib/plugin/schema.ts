@@ -4,7 +4,7 @@ export const PluginSchema = {
         nexusHost: {
             type: 'string',
         },
-        nexusRepo: {
+        nexusPath: {
             type: 'string',
         },
         assets: {

@@ -23,21 +23,6 @@ exports[`publish should raise exception when publish fails 3`] = `
 Array [
   Array [
     "localhost",
-    "some-path",
-    "./some-path",
-  ],
-  Array [
-    "localhost",
-    "some-path-2",
-    "./some-path-2",
-  ],
-]
-`;
-
-exports[`publish should raise exception when publish fails 4`] = `
-Array [
-  Array [
-    "localhost",
     Object {},
   ],
 ]
@@ -58,21 +43,6 @@ exports[`publish should successfully publish 2`] = `
 Array [
   Array [
     "localhost",
-    "some-path",
-    "./some-path",
-  ],
-  Array [
-    "localhost",
-    "artifact-2",
-    "./some-path-2",
-  ],
-]
-`;
-
-exports[`publish should successfully publish 3`] = `
-Array [
-  Array [
-    "localhost",
     Object {},
   ],
 ]
@@ -90,21 +60,6 @@ Array [
 `;
 
 exports[`publish should successfully publish w/ auth 2`] = `
-Array [
-  Array [
-    "localhost",
-    "some-path",
-    "./some-path",
-  ],
-  Array [
-    "localhost",
-    "artifact-2",
-    "./some-path-2",
-  ],
-]
-`;
-
-exports[`publish should successfully publish w/ auth 3`] = `
 Array [
   Array [
     "localhost",

@@ -5,6 +5,6 @@ export interface IPluginAssets {
 
 export interface IPluginConfig {
     nexusHost?: string;
-    nexusRepo?: string;
+    nexusPath?: string;
     assets: Array<IPluginAssets>;
 }

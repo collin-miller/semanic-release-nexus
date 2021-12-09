@@ -31,11 +31,17 @@ export default class Nexus {
     /**
      * deploy
      */
-    public async deploy(repo: string, artifactName: string, artifactPath: string): Promise<void> {
-        let config = {} as AxiosRequestConfig;
+    public async deploy(pathPrefix: string, artifactName: string, artifactPath: string): Promise<void> {
         const form = new FormData();
 
-        form.append(artifactName, fs.createReadStream(artifactPath));
+        form.append('raw.directory', pathPrefix);
+        form.append('raw.asset1', fs.createReadStream(artifactPath));
+        form.append('raw.asset1.filename', `${artifactName}`);
+
+        let config = {
+            headers: form.getHeaders(),
+        } as AxiosRequestConfig;
+
         config = {
             data: form,
             headers: form.getHeaders(),
@@ -44,7 +50,7 @@ export default class Nexus {
             config.auth = { username: this.options.username, password: this.options.password };
         }
         try {
-            await axios.post(`${this.host}/repository/${repo}`, config);
+            await axios.post(`${this.host}/service/rest/v1/components?repository=raw`, form, config);
         } catch (error) {
             debug('%o', error);
             throw error;
