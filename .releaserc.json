@@ -9,12 +9,6 @@
             {
                 "pkgRoot": "dist"
             }
-        ],
-        [
-            "@semantic-release/exec",
-            {
-                "prepareCmd": "yarn version ${nextRelease.version} && yarn build"
-            }
         ]
     ]
 }
