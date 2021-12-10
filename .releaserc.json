@@ -9,6 +9,12 @@
             {
                 "pkgRoot": "dist"
             }
+        ],
+        [
+            "@semantic-release/git",
+            {
+                "assets": ["package.json"]
+            }
         ]
     ]
 }

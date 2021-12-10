@@ -13,6 +13,7 @@
         "@jest/globals": "^27.4.2",
         "@semantic-release/commit-analyzer": "^9.0.2",
         "@semantic-release/exec": "^6.0.2",
+        "@semantic-release/git": "^10.0.1",
         "@semantic-release/github": "^8.0.2",
         "@semantic-release/release-notes-generator": "^10.0.2",
         "@types/debug": "^4.1.7",
@@ -49,7 +50,8 @@
         "build": "yarn tsc",
         "postbuild": "cp package.json README.md LICENSE ./dist",
         "commit": "yarn git-cz",
-        "lint:staged": "yarn pretty-quick --staged"
+        "lint:staged": "yarn pretty-quick --staged",
+        "postversion": "cp dist/package.json ."
     },
     "husky": {
         "hooks": {
