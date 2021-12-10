@@ -8,6 +8,55 @@ Semantic Release Nexus Plugin
 
 This project is a plugin for the [Semantic Release](https://semantic-release.gitbook.io/semantic-release/) framework which will allow you to publish an arbitrary file type to a raw Nexus repository. This is great for pushing binaries, tars, zips, etc. to your Nexus instance for usage throughout your environment.
 
+## Install
+
+```bash
+yarn add semantic-release-nexus --dev
+```
+
+## Usage
+
+```json
+{
+    "branches": ["main"],
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        "@semantic-release/release-notes-generator",
+        [
+            "semantic-release-nexus",
+            {
+                "nexusHost": "https://some-host.yourdomain.com",
+                "nexusPath": "your-super-cool-project",
+                "assets": [
+                    {
+                        "path": "dist/your-super-cool-project-*-darwin.tar.gz"
+                    },
+                    {
+                        "path": "dist/your-super-cool-project-*-linux.tar.gz"
+                    },
+                    {
+                        "path": "dist/your-super-cool-project-*-windows.zip"
+                    }
+                ]
+            }
+        ]
+    ]
+}
+```
+
+## Configuration
+
+Authentication is not required but basic auth is supported via environment variables. You may set `NEXUS_USER` and `NEXUS_PASSWORD` (alternatively replacing `NX` for `NEXUS`) environment variables for basic auth.
+
+### Environment Variables
+
+| Variable                       | Description                                              |
+| ------------------------------ | -------------------------------------------------------- |
+| `NEXUS_USER`/`NX_USER`         | The Username of the service account used for basic auth. |
+| `NEXUS_PASSWORD`/`NX_PASSWORD` | The Password of the service account used for basic auth. |
+| `NEXUS_HOST`/`NX_HOST`         | The hostname or CNAME of the Nexus instance.             |
+| `NEXUS_PATH`/`NX_PATH`         | The Path/Directory/Group to host your assets.            |
+
 ### Options
 
 | Option      | Description                                                        | Default                                         |
