@@ -41,10 +41,13 @@
         "typescript": "^4.5.2"
     },
     "scripts": {
+        "pretest": "yarn rimraf coverage",
         "test": "yarn concurrently npm:test:lint npm:test:unit",
-        "test:unit": "yarn rimraf coverage && yarn jest",
+        "test:unit": "yarn jest",
         "test:lint": "yarn eslint ./src/**/*.ts --max-warnings 0",
-        "build": "yarn rimraf dist && yarn tsc && cp package.json dist && cp README.md dist && cp LICENSE dist",
+        "prebuild": "yarn rimraf dist",
+        "build": "yarn tsc",
+        "postbuild": "cp package.json README.md LICENSE ./dist",
         "commit": "yarn git-cz",
         "lint:staged": "yarn pretty-quick --staged"
     },
