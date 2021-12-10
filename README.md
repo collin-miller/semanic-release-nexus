@@ -4,12 +4,16 @@
 
 Semantic Release Nexus Plugin
 
+## Description
+
+This project is a plugin for the [Semantic Release](https://semantic-release.gitbook.io/semantic-release/) framework which will allow you to publish an arbitrary file type to a raw Nexus repository. This is great for pushing binaries, tars, zips, etc. to your Nexus instance for usage throughout your environment.
+
 ### Options
 
 | Option      | Description                                                        | Default                                         |
 | ----------- | ------------------------------------------------------------------ | ----------------------------------------------- |
 | `nexusHost` | The URL of the Nexus Host.                                         | `NX_URL` or `NEXUS_URL` environment variable.   |
-| `nexusRepo` | The Nexus Repo Name.                                               | `NX_REPO` or `NEXUS_REPO` environment variable. |
+| `nexusPath` | The group or path prefix to host the packages in Nexus.            | `NX_PATH` or `NEXUS_PATH` environment variable. |
 | `assets`    | An array of files to upload to the release. See [assets](#assets). | -                                               |
 
 #### assets
