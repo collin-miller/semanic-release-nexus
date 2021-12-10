@@ -4,7 +4,7 @@
     "main": "index.js",
     "author": "collin-miller <colljmiller@gmail.com>",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "devDependencies": {
         "@babel/core": "^7.16.0",
         "@babel/preset-env": "^7.16.4",
@@ -51,7 +51,7 @@
         "postbuild": "cp package.json README.md LICENSE ./dist",
         "commit": "yarn git-cz",
         "lint:staged": "yarn pretty-quick --staged",
-        "postversion": "cp dist/package.json ."
+        "postversion": "cp package.json .."
     },
     "husky": {
         "hooks": {
