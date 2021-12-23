@@ -3,10 +3,16 @@
 exports[`publish should raise exception when publish fails 1`] = `
 Array [
   Array [
-    "Deploying ./some-path as some-path to localhost",
+    "Found file dist/some-package-v1.tar.gz from path dist/some-package-*.tar.gz",
   ],
   Array [
-    "Deploying ./some-path-2 as some-path-2 to localhost",
+    "Found file dist/other-package-v2.tar.gz from path dist/other-package-*.tar.gz",
+  ],
+  Array [
+    "Deploying dist/some-package-v1.tar.gz as some-package-v1.tar.gz to localhost",
+  ],
+  Array [
+    "Deploying dist/other-package-v2.tar.gz as other-package-v2.tar.gz to localhost",
   ],
 ]
 `;
@@ -31,10 +37,16 @@ Array [
 exports[`publish should successfully publish 1`] = `
 Array [
   Array [
-    "Deploying ./some-path as some-path to localhost",
+    "Found file dist/some-package-v1.tar.gz from path dist/some-package-*.tar.gz",
   ],
   Array [
-    "Deploying ./some-path-2 as artifact-2 to localhost",
+    "Found file dist/other-package-v2.tar.gz from path dist/other-package-*.tar.gz",
+  ],
+  Array [
+    "Deploying dist/some-package-v1.tar.gz as some-package-v1.tar.gz to localhost",
+  ],
+  Array [
+    "Deploying dist/other-package-v2.tar.gz as artifact-2 to localhost",
   ],
 ]
 `;
@@ -51,10 +63,16 @@ Array [
 exports[`publish should successfully publish w/ auth 1`] = `
 Array [
   Array [
-    "Deploying ./some-path as some-path to localhost",
+    "Found file dist/some-package-v1.tar.gz from path dist/some-package-*.tar.gz",
   ],
   Array [
-    "Deploying ./some-path-2 as artifact-2 to localhost",
+    "Found file dist/other-package-v2.tar.gz from path dist/other-package-*.tar.gz",
+  ],
+  Array [
+    "Deploying dist/some-package-v1.tar.gz as some-package-v1.tar.gz to localhost",
+  ],
+  Array [
+    "Deploying dist/other-package-v2.tar.gz as artifact-2 to localhost",
   ],
 ]
 `;
