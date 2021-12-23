@@ -4,7 +4,10 @@
     "main": "index.js",
     "author": "collin-miller <colljmiller@gmail.com>",
     "license": "MIT",
-    "version": "1.0.2",
+    "version": "1.0.0",
+    "bugs": "https://github.com/collin-miller/semantic-release-nexus/issues",
+    "homepage": "https://collin-miller.github.io/semantic-release-nexus/",
+    "repository": "github:collin-miller/semantic-release-nexus",
     "devDependencies": {
         "@babel/core": "^7.16.0",
         "@babel/preset-env": "^7.16.4",
